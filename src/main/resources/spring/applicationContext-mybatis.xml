@@ -4,18 +4,23 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
 http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
     <!--Spting and mybatis -->
+    <!--http://blog.csdn.net/isea533/article/details/45640319-->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
-        <!--自动扫描mapper.xml文件  ,的是编译出来的classes目录下的module目录下的具体模块的mapping目录下的任意xml文件-->
+        <!--配置该属性后，sqlSessionFactory会自动扫描该路径下的所有文件并解析。该路径支持多个，可以用,;\t\n进行分割。
+        每一个路径都可以用直接的包路径，或者Ant风格的表达式-->
+        <!--lasspath*的使用：当项目中有多个classpath路径，并同时加载多个classpath路径下（此种情况多数不会遇到）的文件，
+        *就发挥了作用，如果不加*，则表示仅仅加载第一个classpath路径-->
         <property name="mapperLocations" value="classpath*:mapping/**/*.xml"/>
-        <!--最新的mybatis的配置文件位置-->
+        <!--当SqlSessionFactoryBean提供的配置不能满足使用时，你可以使用mybatis-config.xml配置文件配置其他属性，然后通过configLocation属性指定该配置的路径，
+        SqlSessionFactoryBean会使用该配置文件创建Configuration-->
         <property name="configLocation" value="classpath:mybatis/mybatis-config.xml"/>
     </bean>
 
     <!--mapper 接口所在包名,Spring 会自动查找其下的类-->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <!--basePackage可以写多个，可以用,;\t\n进行分割。每一个路径都可以用直接的包路径，或者Ant风格的表达式。-->
         <property name="basePackage" value="com.xuyy.dao"/>
-        <!--<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>-->
     </bean>
 
 

@@ -35,7 +35,6 @@ public class UserServiceImplTest {
         logger.error("This is error message.");
 
         User user = userService.getUserById(1);
-        System.out.println("-------------------------" + user.getUserName());
         System.out.println(user.toString());
     }
 
