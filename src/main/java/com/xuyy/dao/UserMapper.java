@@ -1,7 +1,6 @@
-package com.xuyy.IDao;
+package com.xuyy.dao;
 
-
-import com.xuyy.domain.User;
+import com.xuyy.pojo.User;
 
 public interface UserMapper {
     int deleteByPrimaryKey(Integer id);

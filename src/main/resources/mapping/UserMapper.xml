@@ -1,33 +1,46 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="test.IDao.UserMapper" >
-  <resultMap id="BaseResultMap" type="test.domain.User" >
+<mapper namespace="com.xuyy.dao.UserMapper" >
+
+
+  <resultMap id="BaseResultMap" type="com.xuyy.pojo.User" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="user_name" property="userName" jdbcType="VARCHAR" />
     <result column="password" property="password" jdbcType="VARCHAR" />
     <result column="age" property="age" jdbcType="INTEGER" />
   </resultMap>
+
+
   <sql id="Base_Column_List" >
     id, user_name, password, age
   </sql>
+
+
+
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
-    from user_t
+    from t_user
     where id = #{id,jdbcType=INTEGER}
   </select>
+
+
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from user_t
+    delete from t_user
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="test.domain.User" >
-    insert into user_t (id, user_name, password, 
+
+
+
+  <insert id="insert" parameterType="com.xuyy.pojo.User" >
+    insert into t_user (id, user_name, password, 
       age)
     values (#{id,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
       #{age,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="test.domain.User" >
-    insert into user_t
+  <insert id="insertSelective" parameterType="com.xuyy.pojo.User" >
+    insert into t_user
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         id,
@@ -57,8 +70,10 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="test.domain.User" >
-    update user_t
+
+
+  <update id="updateByPrimaryKeySelective" parameterType="com.xuyy.pojo.User" >
+    update t_user
     <set >
       <if test="userName != null" >
         user_name = #{userName,jdbcType=VARCHAR},
@@ -72,11 +87,15 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="test.domain.User" >
-    update user_t
+
+
+  <update id="updateByPrimaryKey" parameterType="com.xuyy.pojo.User" >
+    update t_user
     set user_name = #{userName,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR},
       age = #{age,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+
 </mapper>
