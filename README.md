@@ -24,3 +24,11 @@ insert  into `user_t`(`id`,`user_name`,`password`,`age`) values (1,'测试','sfa
 5. 参考这篇博客:http://blog.csdn.net/zhshulin/article/details/23912615
 6. Java -jar mybatis-generator-core-1.3.2.jar -configfile generatorConfig.xml -overwrite
 7. 这样在生成之后，就可以在src目录下找到相应的文件夹，每个表格都会对应三个文件（实体类、接口、配置文件）。
+
+
+## mybatis3参考文档:
+1. (mybatis官方中文文档)-----------http://www.mybatis.org/mybatis-3/zh/index.html
+2. (mybatis-spring官方中文文档)--- http://www.mybatis.org/spring/zh/index.html
+3. (MyBatis相关工具)--------http://mybatis.tk/
+
+

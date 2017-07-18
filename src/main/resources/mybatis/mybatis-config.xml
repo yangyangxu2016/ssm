@@ -26,5 +26,18 @@
         <setting name="useGeneratedKeys" value="true"/>
     </settings>
 
+    <!--类型别名是为 Java 类型设置一个短的名字。它只和 XML 配置有关，存在的意义仅在于用来减少类完全限定名的冗余。-->
+    <typeAliases>
+        <!--<typeAlias alias="Author" type="domain.blog.Author"/>-->
+    </typeAliases>
+
+    <!--一是手动在 MyBatis 的 XML 配 置文件中使用<mappers>部分来指定类路径。
+        第二是使用工厂 bean 的 mapperLocations 属 性。-->
+    <mappers>
+        <!--<mapper url="file:///var/mappers/AuthorMapper.xml"/>-->
+        <!--<mapper resource="org/mybatis/builder/AuthorMapper.xml"/>-->
+        <!--<mapper class="org.mybatis.builder.AuthorMapper"/>-->
+    </mappers>
+
 
 </configuration>

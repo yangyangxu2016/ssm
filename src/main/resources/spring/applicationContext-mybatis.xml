@@ -5,6 +5,7 @@
 http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
     <!--Spting and mybatis -->
     <!--http://blog.csdn.net/isea533/article/details/45640319-->
+    <!--mybatis-spring官方文档中文版============http://www.mybatis.org/spring/zh/getting-started.html-->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
         <!--配置该属性后，sqlSessionFactory会自动扫描该路径下的所有文件并解析。该路径支持多个，可以用,;\t\n进行分割。
