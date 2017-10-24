@@ -1,3 +1,5 @@
+# 简单的SSM框架，可以直接使用
+
 # ssm
 spring-springMVC-myBatis3
 
